@@ -50,6 +50,69 @@
       .nav-links a:hover {
         color: #00bfff;
       }
+      /* === Responsive Navbar === */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #00bfff;
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+    
+    /* Ubah bentuk jadi silang kalau aktif */
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    /* === Menu default (desktop) === */
+    .nav-links {
+      display: flex;
+    }
+    
+    /* === Responsive mode (mobile) === */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+    
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(10, 15, 31, 0.95);
+        width: 200px;
+        padding: 20px;
+        border-left: 1px solid rgba(0, 191, 255, 0.3);
+        transition: right 0.3s ease;
+      }
+    
+      .nav-links.active {
+        right: 0;
+      }
+    
+      .nav-links li {
+        margin: 15px 0;
+      }
+    
+      .nav-links a {
+        font-size: 1.1rem;
+      }
+    }
+    
 
       /* Hero */
       .hero {
@@ -242,17 +305,27 @@
   </head>
 
 <header>
-  <nav class="navbar"> 
-    <div class="logo">Rdhojavier</div> 
-    <ul class="nav-links"> 
-      <li><a href="#home">Home</a></li> 
-      <li><a href="#about">About</a></li> 
-      <li><a href="#project">Project</a></li> 
-      <li><a href="#skill">Skill</a></li> 
-      <li><a href="#contact">Contact</a></li> 
-    </ul> 
-  </nav> 
+  <nav class="navbar">
+    <div class="logo">Rdhojavier</div>
+
+    <!-- Hamburger Menu Button -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Nav Links -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#skill">Skill</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
+
 
     <section id="home" class="hero">
       <div class="hero-content">
@@ -400,6 +473,14 @@
       window.addEventListener("scroll", () => {
         const offset = window.scrollY * 0.4;
         heroContent.style.transform = `translateY(${offset}px)`;
+      });
+
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
       });
     </script>
   </body>
