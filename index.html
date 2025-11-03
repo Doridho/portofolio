@@ -57,7 +57,7 @@
       cursor: pointer;
       gap: 5px;
     }
-    
+
     .hamburger span {
       width: 25px;
       height: 3px;
@@ -65,7 +65,7 @@
       border-radius: 3px;
       transition: all 0.3s;
     }
-    
+
     /* Ubah bentuk jadi silang kalau aktif */
     .hamburger.active span:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
@@ -76,12 +76,12 @@
     .hamburger.active span:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -5px);
     }
-    
+
     /* === Menu default (desktop) === */
     .nav-links {
       display: flex;
     }
-    
+
     /* === Responsive mode (mobile) === */
     @media (max-width: 768px) {
       .hamburger {
@@ -112,7 +112,7 @@
         font-size: 1.1rem;
       }
     }
-    
+
 
       /* Hero */
       .hero {
@@ -422,6 +422,7 @@
           <img
             src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
             alt="GitHub"
+            
           />
           <h3>GitHub</h3>
         </div>
@@ -440,7 +441,17 @@
 
     <footer>
       <p>© 2025 Ridho Javier Mahsa. All rights reserved.</p>
+      <p>
+        <a href="https://github.com/Doridho" target="_blank" style="color:#00bfff; text-decoration:none;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+               alt="GitHub" 
+               width="24" 
+               style="vertical-align:middle; margin-right:5px;">
+          Lihat GitHub Saya
+        </a>
+      </p>
     </footer>
+
 
     <script>
       const fadeElements = document.querySelectorAll(".fade-in");
